@@ -61,7 +61,7 @@ public class ExchangeService {
         return new ExchangeRate(currency.getCode(), minMid, maxMid);
     }
 
-    public Currency getDifferecneBetweenAskBid(String code, Integer topCount) throws JsonProcessingException {
+    public Currency getDifferenceBetweenAskBid(String code, Integer topCount) throws JsonProcessingException {
 
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://api.nbp.pl/api/exchangerates/rates/C/" + code + "/last/" + topCount + "/?format=json";

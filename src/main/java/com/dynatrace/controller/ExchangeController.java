@@ -32,15 +32,17 @@ public class ExchangeController {
     @GetMapping(value = "/min-max-rate")
     @Operation(summary = "Get max and min average exchange rate by code and top count")
     public ExchangeRate getMaxAndMinAverageExchangeRate(@RequestParam String code, @RequestParam
-    @Min(value = 1, message = "Liczba notowań musi być w przedziale od 1 do 255.")
-    @Max(value = 255, message = "Liczba notowań musi być w przedziale od 1 do 255.") Integer topCount) throws JsonProcessingException {
+        @Min(value = 1, message = "Liczba notowań musi być w przedziale od 1 do 255.")
+        @Max(value = 255, message = "Liczba notowań musi być w przedziale od 1 do 255.") Integer topCount) throws JsonProcessingException {
+
         return exchangeService.getMaxAndMinAverageExchangeRate(code, topCount);
     }
 
     @GetMapping(value = "/difference", params = {"code", "topCount"})
     public Currency getAskBidDifference(@RequestParam String code, @RequestParam
-    @Min(value = 1, message = "Liczba notowań musi być w przedziale od 1 do 255.")
-    @Max(value = 255, message = "Liczba notowań musi być w przedziale od 1 do 255.") Integer topCount) throws JsonProcessingException {
-        return exchangeService.getDifferecneBetweenAskBid(code,topCount);
+        @Min(value = 1, message = "Liczba notowań musi być w przedziale od 1 do 255.")
+        @Max(value = 255, message = "Liczba notowań musi być w przedziale od 1 do 255.") Integer topCount) throws JsonProcessingException {
+
+        return exchangeService.getDifferenceBetweenAskBid(code,topCount);
     }
 }
